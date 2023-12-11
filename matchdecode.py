@@ -1,8 +1,12 @@
 import requests
 from match_ids_module import match_ids
 
+hero = []
 specific_player_items = []
+
+
 def main():
+    print("matches id:",match_ids)
     api_key = "your_api_key_here"
 
     headers = {
@@ -11,7 +15,6 @@ def main():
     }
 
     # Array to store item IDs for the specific player
-
 
     for match_id in match_ids:
         try:
@@ -25,6 +28,7 @@ def main():
                 for player in match_details['players']:
                     # Check if the player has the specified ID (86853590)
                     if player.get('account_id') == 86853590:
+                        hero.append(player[f"hero_id"])
                         items = []
                         for i in range(6):  # Assuming item_0 to item_5
                             item_key = f"item_{i}"
@@ -33,7 +37,7 @@ def main():
                                 items.append(item_id)
                                 specific_player_items.append(item_id)
 
-                        print(f"Items for Player with ID 86853590 in Match ID {match_id}: {items}")
+                        print(f"Items for Player with ID 86853590 in Match ID {match_id}: {items} On hero:{hero}")
 
             print(f"Successful response for Match ID {match_id}")
         except requests.exceptions.HTTPError as errh:
@@ -46,5 +50,7 @@ def main():
     print("Specific player (ID 86853590) item IDs:", specific_player_items)
     import itemsname
     itemsname.main()
+
+
 if __name__ == "__main__":
     main()
