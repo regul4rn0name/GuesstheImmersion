@@ -23,13 +23,13 @@ def get_item_names(ids):
 
         # Append names to items using the provided IDs
         for item_id in ids:
-            item_name = item_data.get(str(item_id), "Item not found")
+            item_name = item_data.get(str(item_id), )
             item_names.append(item_name)
 
         for item_tag in item_names:
-            item_dname = dname_data.get(str(item_tag), {}).get('dname', "Item not found")
+            item_dname = dname_data.get(str(item_tag), {}).get('dname', )
             item_dnames.append(item_dname)
-        localname = heroname.get(str(hero[0]), {}).get('localized_name', "Hero not found")
+        localname = heroname.get(str(hero[0]), {}).get('localized_name', )
         print(hero[0])
         return item_dnames, localname
     else:

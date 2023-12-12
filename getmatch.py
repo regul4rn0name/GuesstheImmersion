@@ -2,8 +2,9 @@ import requests
 import time
 from match_ids_module import match_ids
 import matchprocess
-import matchdecode
-import mysql.connector
+
+import get
+
 api_key = "your_api_key_here"
 account_id = 86853590  # Replace with the desired account ID
 
@@ -13,9 +14,8 @@ headers = {
 }
 
 params = {
-    "limit": 1,  # Adjust the limit as needed
+    "limit": 60,  # Adjust the limit as needed
 }
-
 
 try:
     # Get player's matches
@@ -46,7 +46,7 @@ except KeyboardInterrupt:
     print("Script interrupted by user.")
 
 # Display the matches in the match_ids array
-print("Match IDs to be processed:")
+get.main()
+match_ids = []
 print(match_ids)
-matchdecode.main()
 matchprocess.main()
