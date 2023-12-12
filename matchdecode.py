@@ -51,7 +51,7 @@ def main():
     # Print item IDs for the specific player
     print("Specific player (ID 86853590) item IDs:", specific_player_items)
     import itemsname
-    itemsname.main()
+
 
 
 if __name__ == "__main__":
